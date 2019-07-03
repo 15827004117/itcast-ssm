@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <html>
 
 <head>
@@ -216,7 +217,7 @@
                                 </td>
                                 <td>${product.productName}</td>
                                 <td>${product.cityName}</td>
-                                <td>${product.departureTimeStr}</td>
+                                <td><fmt:formatDate value="${product.departureTime }" pattern="yyyy-MM-dd HH:mm"/></td>
                                 <td class="text-center">${product.productPrice}</td>
                                 <td class="text-center">${product.productDesc}</td>
                                 <td class="text-center">${product.productStatusStr}</td>

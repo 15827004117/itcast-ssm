@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/product")
@@ -19,6 +17,7 @@ public class ProductController {
     @Autowired
     private IProductService productService;
 
+    // 查看产品列表
     @RequestMapping("/findAll.do")
     @ResponseBody
     public ModelAndView findAll(){
@@ -31,5 +30,15 @@ public class ProductController {
             e.printStackTrace();
         }
         return mv;
+    }
+
+    @RequestMapping("/save.do")
+    public String save(Product product) {
+        try {
+            productService.save(product);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:findAll.do";
     }
 }
