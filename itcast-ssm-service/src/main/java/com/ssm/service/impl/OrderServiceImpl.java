@@ -1,5 +1,6 @@
 package com.ssm.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.ssm.dao.IOrderDao;
 import com.ssm.domain.Orders;
 import com.ssm.service.IOrderService;
@@ -17,7 +18,8 @@ public class OrderServiceImpl implements IOrderService {
     private IOrderDao orderDao;
 
     @Override
-    public List<Orders> findAll() throws Exception {
+    public List<Orders> findAll(int page, int size) throws Exception {
+        PageHelper.startPage(page, size);
         return orderDao.findAll();
     }
 }

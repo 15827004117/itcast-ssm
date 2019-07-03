@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <!DOCTYPE html>
 <html>
 
@@ -166,12 +167,12 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 				<h1>
-					数据管理 <small>数据列表</small>
+					基础数据 <small>订单列表</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">数据管理</a></li>
-					<li class="active">数据列表</li>
+					<li><a href="#">基础数据</a></li>
+					<li class="active">订单列表</li>
 				</ol>
 			</section>
 			<!-- 内容头部 /-->
@@ -242,7 +243,7 @@
 								<tbody>
 
 
-									<c:forEach items="${ordersList}" var="orders">
+									<c:forEach items="${pageInfo.list}" var="orders">
 
 										<tr>
 											<td><input name="ids" type="checkbox"></td>
@@ -250,7 +251,7 @@
 											<td>${orders.orderNum }</td>
 											<td>${orders.product.productName }</td>
 											<td>${orders.product.productPrice }</td>
-											<td>${orders.orderTimeStr }</td>
+											<td><fmt:formatDate value="${orders.orderTime }" pattern="yyyy-MM-dd HH:mm"/></td>
 											<td class="text-center">${orders.orderStatusStr }</td>
 											<td class="text-center">
 												<button type="button" class="btn bg-olive btn-xs">订单</button>
@@ -315,7 +316,7 @@
                 <div class="box-footer">
                     <div class="pull-left">
                         <div class="form-group form-inline">
-                            总共2 页，共14 条数据。 每页
+                            总共 ${pageInfo.pages} 页，共 ${pageInfo.total} 条数据。 每页
                             <select class="form-control">
                                 <option>1</option>
                                 <option>2</option>
@@ -329,17 +330,15 @@
                     <div class="box-tools pull-right">
                         <ul class="pagination">
                             <li>
-                                <a href="#" aria-label="Previous">首页</a>
+                                <a href="${pageContext.request.contextPath}/orders/findAll.do?page=1&size=${pageInfo.pageSize}" aria-label="Previous">首页</a>
                             </li>
-                            <li><a href="#">上一页</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">下一页</a></li>
+                            <li><a href="${pageContext.request.contextPath}/orders/findAll.do?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a></li>
+							<c:forEach begin="1" end="${pageInfo.pages}" var="pageNum">
+                            <li><a href="${pageContext.request.contextPath}/orders/findAll.do?page=${pageNum}&size=${pageInfo.pageSize}">${pageNum}</a></li>
+                            </c:forEach>
+                            <li><a href="${pageContext.request.contextPath}/orders/findAll.do?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a></li>
                             <li>
-                                <a href="#" aria-label="Next">尾页</a>
+                                <a href="${pageContext.request.contextPath}/orders/findAll.do?page=${pageInfo.pages}&size=${pageInfo.pageSize}" aria-label="Next">尾页</a>
                             </li>
                         </ul>
                     </div>
