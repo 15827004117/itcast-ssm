@@ -316,12 +316,12 @@
                 <div class="box-footer">
                     <div class="pull-left">
                         <div class="form-group form-inline">
-                            总共 ${pageInfo.pages} 页，共 ${pageInfo.total} 条数据。 每页
-                            <select class="form-control">
+                            总共 ${pageInfo.pages} 页，共 ${pageInfo.total} 条数据。 每页显示
+                            <select class="form-control" id="changePageSize" onchange="changePageSize()">
                                 <option>1</option>
                                 <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+								<option>3</option>
+								<option>4</option>
                                 <option>5</option>
                             </select> 条
                         </div>
@@ -464,7 +464,7 @@
 			var pageSize = $("#changePageSize").val();
 
 			//向服务器发送请求，改变没页显示条数
-			location.href = "${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize="
+			location.href = "${pageContext.request.contextPath}/orders/findAll.do?page=1&size="
 					+ pageSize;
 		}
 		$(document).ready(function() {
