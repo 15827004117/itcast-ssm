@@ -65,7 +65,7 @@ public class User {
         if(status == 0) {
             statusStr = "未开启";
         }
-        if(status == 0) {
+        if(status == 1) {
             statusStr = "开启";
         }
         return statusStr;
