@@ -1,6 +1,12 @@
 C:\Users\Administrator\IdeaProjects\itcast-ssm\itcast-ssm-service\src\main\java\com\ssm\service\impl\OrderServiceImpl.java
 C:\Users\Administrator\IdeaProjects\itcast-ssm\itcast-ssm-service\src\main\java\com\ssm\service\IProductService.java
+C:\Users\Administrator\IdeaProjects\itcast-ssm\itcast-ssm-service\src\main\java\com\ssm\service\impl\PermissionServiceImpl.java
 C:\Users\Administrator\IdeaProjects\itcast-ssm\itcast-ssm-service\src\main\java\com\ssm\service\IUserService.java
+C:\Users\Administrator\IdeaProjects\itcast-ssm\itcast-ssm-service\src\main\java\com\ssm\service\IRoleService.java
 C:\Users\Administrator\IdeaProjects\itcast-ssm\itcast-ssm-service\src\main\java\com\ssm\service\impl\UserServiceImpl.java
+C:\Users\Administrator\IdeaProjects\itcast-ssm\itcast-ssm-service\src\main\java\com\ssm\service\impl\RoleServiceImpl.java
+C:\Users\Administrator\IdeaProjects\itcast-ssm\itcast-ssm-service\src\main\java\com\ssm\service\ISysLogService.java
+C:\Users\Administrator\IdeaProjects\itcast-ssm\itcast-ssm-service\src\main\java\com\ssm\service\IPermissionService.java
 C:\Users\Administrator\IdeaProjects\itcast-ssm\itcast-ssm-service\src\main\java\com\ssm\service\impl\ProductServiceImpl.java
+C:\Users\Administrator\IdeaProjects\itcast-ssm\itcast-ssm-service\src\main\java\com\ssm\service\impl\SysLogServiceImpl.java
 C:\Users\Administrator\IdeaProjects\itcast-ssm\itcast-ssm-service\src\main\java\com\ssm\service\IOrderService.java

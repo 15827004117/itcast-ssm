@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service("userService")
@@ -21,8 +22,9 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
     private IUserDao userDao;
+
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    private BCryptPasswordEncoder passwordEncoder;  // 密码加密
 
     // 查询用户列表
     @Override
@@ -42,6 +44,18 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User findById(String id) throws Exception {
         return userDao.findById(id);
+    }
+
+    @Override
+    public User findUserByIdAndAllRole(String id) throws Exception{
+        return userDao.findUserByIdAndAllRole(id);
+    }
+
+    @Override
+    public void addRoleToUser(String userId, String[] roleIds) {
+        for (String roleId: roleIds) {
+            userDao.addRoleToUser(userId,roleId);
+        }
     }
 
     // 用户登陆验证

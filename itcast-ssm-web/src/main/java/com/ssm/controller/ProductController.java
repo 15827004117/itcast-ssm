@@ -32,6 +32,7 @@ public class ProductController {
         return mv;
     }
 
+    // 添加产品
     @RequestMapping("/save.do")
     public String save(Product product) {
         try {

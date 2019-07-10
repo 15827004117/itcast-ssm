@@ -15,4 +15,9 @@ public interface IUserService extends UserDetailsService {
 
     // 查询用户详情
     User findById(String id) throws Exception;
+
+    // 查询该用户可添加的角色选项
+    User findUserByIdAndAllRole(String id) throws Exception;
+
+    void addRoleToUser(String userId, String[] roleIds);
 }
